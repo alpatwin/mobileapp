@@ -7,7 +7,13 @@
     </PropertyGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\Toggl.Core.UI\Toggl.Core.UI.csproj" />
       <ProjectReference Include="..\Toggl.Core\Toggl.Core.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="NSubstitute" Version="4.2.2" />
+      <PackageReference Include="ReactiveUI.WPF" Version="11.4.17" />
     </ItemGroup>
 
 </Project>
