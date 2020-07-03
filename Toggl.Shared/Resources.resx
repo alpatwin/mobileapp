@@ -1810,7 +1810,7 @@ boost your productivity!</value>
         <comment>Description of the time entry that gets created automatically as a part of user onboarding</comment>
     </data>
     <data name="HereIsYourRunningTimeEntryTooltip" xml:space="preserve">
-        <value>Here is your first running Time Entry.
+        <value>Here is your running Time Entry.
 Tap to edit it.</value>
         <comment>Text displayed in the onboarding tooltip that's shown above the very first time entry</comment>
     </data>
