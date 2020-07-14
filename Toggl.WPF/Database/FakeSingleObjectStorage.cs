@@ -12,7 +12,7 @@ namespace Toggl.WPF.Database
     {
         public IObservable<TModel> Single()
         {
-            return Observable.Return(models.Single());
+            return CreateObservable(() => models.Single());
         }
 
         public IObservable<Unit> Delete()

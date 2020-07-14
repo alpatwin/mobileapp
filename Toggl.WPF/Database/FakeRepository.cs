@@ -2,8 +2,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reactive;
+using System.Reactive.Disposables;
 using System.Reactive.Linq;
 using Toggl.Storage;
+using Toggl.Storage.Exceptions;
 
 namespace Toggl.WPF.Database
 {
@@ -48,24 +50,50 @@ namespace Toggl.WPF.Database
             }
             return Observable.Return(Unit.Default);
         }
+
+        protected static IObservable<T> CreateObservable<T>(Func<T> getFunction)
+        {
+            return Observable.Create<T>(observer =>
+            {
+                try
+                {
+                    var data = getFunction();
+                    observer.OnNext(data);
+                    observer.OnCompleted();
+                }
+                catch (InvalidOperationException ex)
+                {
+                    observer.OnError(new DatabaseOperationException<TModel>(ex));
+                }
+                catch (Exception ex)
+                {
+                    observer.OnError(ex);
+                }
+
+                return Disposable.Empty;
+            });
+        }
     }
 
     public class FakeRepository<TModel> : FakeBaseStorage<TModel>, IRepository<TModel>
     {
         public IObservable<TModel> GetById(long id)
         {
-            throw new NotImplementedException();
+            throw new InvalidOperationException();
+            //throw new NotImplementedException();
             // return Observable.Return((TModel) null);
         }
 
         public IObservable<IEnumerable<TModel>> GetByIds(long[] ids)
         {
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
+            throw new InvalidOperationException();
         }
 
         public IObservable<TModel> ChangeId(long currentId, long newId)
         {
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
+            throw new InvalidOperationException();
         }
     }
 }

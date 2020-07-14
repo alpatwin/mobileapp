@@ -3,9 +3,11 @@ using System.Reactive.Disposables;
 using System.Reactive.Linq;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 using ReactiveUI;
 using Toggl.Core.UI.ViewModels;
 using Toggl.Shared;
+using Toggl.Shared.Extensions;
 
 namespace Toggl.WPF.Presentation
 {
@@ -28,11 +30,60 @@ namespace Toggl.WPF.Presentation
 
             emailTextChanged
                 .Select(Email.From)
-                .Subscribe(ViewModel.Email.Accept);
+                .Subscribe(ViewModel.Email.Accept)
+                .DisposeWith(disposeBag);
 
             ViewModel.Email
                 .Select(x => x.ToString())
-                .Subscribe(email => emailTextBox.Text = email);
+                .Subscribe(email => emailTextBox.Text = email)
+                .DisposeWith(disposeBag);;
+
+            // Password
+            var passwordChanged = Observable.FromEventPattern<RoutedEventHandler, RoutedEventArgs>(
+                h => passwordBox.PasswordChanged += h,
+                h => passwordBox.PasswordChanged -= h
+            ).Select(x => ((PasswordBox)x.Sender).Password);
+
+            ViewModel.Password
+                .Select(x => x.ToString())
+                .Take(1)
+                .Subscribe(passwordBox.TextObserver())
+                .DisposeWith(disposeBag);
+
+            passwordChanged
+                .DistinctUntilChanged()
+                .Select(Password.From)
+                .Subscribe(ViewModel.Password.Accept)
+                .DisposeWith(disposeBag);
+
+            // Login
+            var loginCommand = ViewModel.Login.ToCommand();
+            this.loginButton.Command = loginCommand;
+            Disposable.Create(this.loginButton, button => button.Command = null)
+                .DisposeWith(disposeBag);
+        }
+    }
+
+    public static class ViewExtensions
+    {
+        public static ICommand ToCommand<T1, T2>(this RxAction<T1, T2> viewAction)
+        {
+            return ReactiveCommand.CreateFromObservable<T1, T2>(viewAction.ExecuteWithCompletion);
+        }
+
+        public static Action<string> TextObserver(this PasswordBox passwordBox, bool ignoreUnchanged = false)
+        {
+            return password =>
+            {
+                if (!ignoreUnchanged)
+                {
+                    passwordBox.Password = password;
+                    return;
+                }
+
+                if (passwordBox.Password != password)
+                    passwordBox.Password = password;
+            };
         }
     }
 }

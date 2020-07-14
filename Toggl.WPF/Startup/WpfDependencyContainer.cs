@@ -42,6 +42,7 @@ namespace Toggl.WPF.Startup
         public static void EnsureInitialized()
         {
             Instance = new WpfDependencyContainer(ApiEnvironment.Staging, userAgent);
+            UIDependencyContainer.Instance = Instance;
         }
 
         protected override ITogglDatabase CreateDatabase()
