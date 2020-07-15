@@ -4,6 +4,7 @@ using System.Reactive.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using System.Windows.Media.Animation;
 using ReactiveUI;
 using Toggl.Core.UI.ViewModels;
 using Toggl.Shared;
@@ -60,6 +61,23 @@ namespace Toggl.WPF.Presentation
             var loginCommand = ViewModel.Login.ToCommand();
             this.loginButton.Command = loginCommand;
             Disposable.Create(this.loginButton, button => button.Command = null)
+                .DisposeWith(disposeBag);
+
+            ViewModel.Login.Executing
+                .Subscribe(isExecuting =>
+                {
+                    var spinnerAnimation = (Storyboard) this.Resources["RotateConfirmSpinner"];
+                    if (isExecuting) spinnerAnimation.Begin();
+                    else spinnerAnimation.Stop();
+                })
+                .DisposeWith(disposeBag);
+
+            // Google Login
+
+
+            // login error
+            ViewModel.LoginErrorMessage
+                .Subscribe(errorMessage => loginErrorTextBlock.Text = errorMessage)
                 .DisposeWith(disposeBag);
         }
     }

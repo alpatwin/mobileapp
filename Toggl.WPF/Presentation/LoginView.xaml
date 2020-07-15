@@ -61,7 +61,7 @@
                             </Border.Effect>
                         </Border>
                         <TextBlock x:Name="loginErrorTextBlock"
-                                   Text="Incorrect email or password"
+                                   Text=""
                                    Padding="8 3 5 8"/>
                     </Grid>
 
