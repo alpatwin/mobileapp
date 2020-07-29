@@ -25,13 +25,13 @@
   <path
       android:pathData="M51.286,30l5.429,0l0,27.5l-5.429,0z"
       android:strokeWidth="1"
-      android:fillColor="#FFFFFF"
+      android:fillColor="#2c1338"
       android:fillType="evenOdd"
       android:strokeColor="#00000000"/>
   <path
       android:pathData="M54,74C43.517,74 35,65.533 35,55.112C35,46.384 40.897,39.089 48.955,36.875L48.955,42.346C43.845,44.365 40.241,49.315 40.241,55.047C40.241,62.602 46.4,68.724 54,68.724C61.6,68.724 67.759,62.602 67.759,55.047C67.759,49.25 64.155,44.3 59.045,42.346L59.045,36.875C67.103,39.089 73,46.384 73,55.112C73,65.533 64.483,74 54,74L54,74Z"
       android:strokeWidth="1"
-      android:fillColor="#FFFFFF"
+      android:fillColor="#2c1338"
       android:fillType="evenOdd"
       android:strokeColor="#00000000"/>
   <path
