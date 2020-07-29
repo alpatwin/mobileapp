@@ -332,7 +332,7 @@ private TemporaryFileTransformation GetIosInfoConfigurationTransformation()
     else if (target == "Build.Release.iOS.AppStore")
     {
         bundleId = "com.toggl.daneel";
-        appName = "Toggl";
+        appName = "Toggl Track";
         iconSet = "Assets.xcassets/AppIcon.appiconset";
         bundleVersion = GetVersionNumberFromTagOrTimestamp();
     }
@@ -443,7 +443,7 @@ private TemporaryFileTransformation GetIosTimerWidgetExtensionInfoConfigurationT
     else if (target == "Build.Release.iOS.AppStore")
     {
         bundleId = "com.toggl.daneel.TimerWidgetExtension";
-        appName = "Toggl";
+        appName = "Toggl Track";
         bundleVersion = GetVersionNumberFromTagOrTimestamp();
     }
 
@@ -565,7 +565,7 @@ private TemporaryFileTransformation GetAndroidManifestTransformation()
     else if (target == "Build.Release.Android.PlayStore")
     {
         packageName = "com.toggl.giskard";
-        appName = "Toggl";
+        appName = "Toggl Track";
         versionNumber = GetVersionNumberFromTagOrTimestamp();
     }
 
@@ -595,7 +595,7 @@ private TemporaryFileTransformation GetAndroidSplashScreenTransformation()
     }
     else if (target == "Build.Release.Android.PlayStore")
     {
-        appName = "Toggl";
+        appName = "Toggl Track";
     }
 
     var filePath = GetFiles(path).Single();
