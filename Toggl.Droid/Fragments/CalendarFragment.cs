@@ -25,7 +25,14 @@ using Toggl.Droid.Views.Calendar;
 using Toggl.Shared.Extensions;
 using Toggl.Shared.Extensions.Reactive;
 using Android.Content;
+using Android.Graphics;
+using Android.Graphics.Drawables;
+using Android.Support.V4.Content;
+using Android.Text;
 using Toggl.Core.Analytics;
+using Toggl.Core.Extensions;
+using Toggl.Core.Models.Interfaces;
+using Toggl.Core.UI.Helper;
 
 namespace Toggl.Droid.Fragments
 {
@@ -40,6 +47,9 @@ namespace Toggl.Droid.Fragments
         private int defaultToolbarElevationInDPs;
         private bool hasResumedOnce = false;
         private bool isChangingPageFromUserInteraction = true;
+
+        private Drawable addDrawable;
+        private Drawable playDrawable;
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
@@ -155,10 +165,6 @@ namespace Toggl.Droid.Fragments
                 .Subscribe(recordPageSwipeEvent)
                 .DisposedBy(DisposeBag);
 
-            ViewModel.IsTimeEntryRunning
-                .Subscribe(setStartStopVisibility)
-                .DisposedBy(DisposeBag);
-
             playButton.Rx()
                 .BindAction(ViewModel.StartTimeEntry, _ => true)
                 .DisposedBy(DisposeBag);
@@ -169,6 +175,80 @@ namespace Toggl.Droid.Fragments
 
             stopButton.Rx()
                 .BindAction(ViewModel.StopTimeEntry)
+                .DisposedBy(DisposeBag);
+
+            playButton.Rx().TouchEvents()
+                .Subscribe(handlePlayFabEvent)
+                .DisposedBy(DisposeBag);
+
+            playButton.Rx().LongPress()
+                .Subscribe(_ => playButton.StopAnimation())
+                .DisposedBy(DisposeBag);
+
+            runningEntryCardFrame.Rx().Tap()
+                .WithLatestFrom(ViewModel.CurrentRunningTimeEntry,
+                    (_, te) => new EditTimeEntryInfo(EditTimeEntryOrigin.RunningTimeEntryCard, te.Id))
+                .Subscribe(ViewModel.SelectTimeEntry.Inputs)
+                .DisposedBy(DisposeBag);
+
+            ViewModel.ElapsedTime
+                .Subscribe(timeEntryCardTimerLabel.Rx().TextObserver())
+                .DisposedBy(DisposeBag);
+
+            ViewModel.CurrentRunningTimeEntry
+                .Select(te => te?.Description ?? "")
+                .Subscribe(timeEntryCardDescriptionLabel.Rx().TextObserver())
+                .DisposedBy(DisposeBag);
+
+            ViewModel.CurrentRunningTimeEntry
+                .Select(te => string.IsNullOrWhiteSpace(te?.Description))
+                .Subscribe(timeEntryCardAddDescriptionLabel.Rx().IsVisible())
+                .DisposedBy(DisposeBag);
+
+            ViewModel.CurrentRunningTimeEntry
+                .Select(te => string.IsNullOrWhiteSpace(te?.Description))
+                .Invert()
+                .Subscribe(timeEntryCardDescriptionLabel.Rx().IsVisible())
+                .DisposedBy(DisposeBag);
+
+            ViewModel.CurrentRunningTimeEntry
+                .Select(CreateProjectClientTaskLabel)
+                .Subscribe(timeEntryCardProjectClientTaskLabel.Rx().TextFormattedObserver())
+                .DisposedBy(DisposeBag);
+
+            var projectVisibilityObservable = ViewModel.CurrentRunningTimeEntry
+                .Select(te => te?.Project != null);
+
+            projectVisibilityObservable
+                .Subscribe(timeEntryCardProjectClientTaskLabel.Rx().IsVisible())
+                .DisposedBy(DisposeBag);
+
+            projectVisibilityObservable
+                .Subscribe(timeEntryCardDotContainer.Rx().IsVisible())
+                .DisposedBy(DisposeBag);
+
+            var projectColorObservable = ViewModel.CurrentRunningTimeEntry
+                .Select(te => te?.Project?.Color ?? "#000000")
+                .Select(Color.ParseColor);
+
+            projectColorObservable
+                .Subscribe(timeEntryCardDotView.Rx().DrawableColor())
+                .DisposedBy(DisposeBag);
+
+            addDrawable = ContextCompat.GetDrawable(Context, Resource.Drawable.ic_add);
+            playDrawable = ContextCompat.GetDrawable(Context, Resource.Drawable.ic_play_big);
+
+            ViewModel.IsInManualMode
+                .Select(isManualMode => isManualMode ? addDrawable : playDrawable)
+                .Subscribe(playButton.SetDrawableImageSafe)
+                .DisposedBy(DisposeBag);
+
+            ViewModel.IsTimeEntryRunning
+                .Subscribe(visible => playButton.SetExpanded(visible))
+                .DisposedBy(DisposeBag);
+
+            calendarDayAdapter.MenuVisibilityRelay
+                .Subscribe(setRunningTimeEntryCardAndStartButtonVisibility)
                 .DisposedBy(DisposeBag);
         }
 
@@ -222,11 +302,56 @@ namespace Toggl.Droid.Fragments
             return false;
         }
 
+        public ISpannable CreateProjectClientTaskLabel(IThreadSafeTimeEntry te)
+        {
+            if (te == null)
+                return new SpannableString(string.Empty);
+
+            var hasProject = te.ProjectId != null;
+            var projectIsPlaceholder = te.Project?.IsPlaceholder() ?? false;
+            var taskIsPlaceholder = te.Task?.IsPlaceholder() ?? false;
+            return Extensions.TimeEntryExtensions.ToProjectTaskClient(
+                Context,
+                hasProject,
+                te.Project?.Name,
+                te.Project?.Color,
+                te.Task?.Name,
+                te.Project?.Client?.Name,
+                projectIsPlaceholder,
+                taskIsPlaceholder,
+                displayPlaceholders: true);
+        }
+
+        private void handlePlayFabEvent(View.TouchEventArgs eventArgs)
+        {
+            if (eventArgs == null)
+            {
+                return;
+            }
+
+            eventArgs.Handled = false;
+
+            if (eventArgs.Event.Action == MotionEventActions.Up)
+            {
+                playButton.StopAnimation();
+            }
+            else
+            {
+                playButton.TryStartAnimation();
+            }
+        }
+
         private void hideBottomBar(bool bottomBarShouldBeHidden)
         {
             (Activity as MainTabBarActivity)?.ChangeBottomBarVisibility(bottomBarShouldBeHidden);
             calendarViewPager.PostInvalidateOnAnimation();
             calendarDayAdapter?.InvalidateCurrentPage();
+        }
+
+        private void setRunningTimeEntryCardAndStartButtonVisibility(bool isContextualMenuVisible)
+        {
+            playButton.Alpha = isContextualMenuVisible ? 0 : 1;
+            runningEntryCardFrame.Alpha = isContextualMenuVisible ? 0 : 1;
         }
 
         public void ScrollToStart()
@@ -530,12 +655,6 @@ namespace Toggl.Droid.Fragments
 
                 return weeklySections.ToImmutableList();
             }
-        }
-
-        private void setStartStopVisibility(bool isTimeEntryRunning)
-        {
-            playButton.Visibility = (!isTimeEntryRunning).ToVisibility();
-            stopButton.Visibility = isTimeEntryRunning.ToVisibility();
         }
     }
 }

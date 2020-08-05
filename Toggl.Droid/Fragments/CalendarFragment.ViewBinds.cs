@@ -22,7 +22,15 @@ namespace Toggl.Droid.Fragments
         private AppBarLayout appBarLayout;
         private Toolbar toolbar;
         private AnimatedFloatingActionButton playButton;
-        private AnimatedFloatingActionButton stopButton;
+        private FloatingActionButton stopButton;
+        private View runningEntryCardFrame;
+        private TextView timeEntryCardTimerLabel;
+        private TextView timeEntryCardDescriptionLabel;
+        private TextView timeEntryCardAddDescriptionLabel;
+        private View timeEntryCardDotContainer;
+        private View timeEntryCardDotView;
+        private TextView timeEntryCardProjectClientTaskLabel;
+
 
         protected override void InitializeViews(View view)
         {
@@ -39,9 +47,16 @@ namespace Toggl.Droid.Fragments
             }
 
             toolbar = view.FindViewById<Toolbar>(Resource.Id.Toolbar);
-
-            playButton = view.FindViewById<AnimatedFloatingActionButton>(Resource.Id.CalendarPlayButton);
-            stopButton = view.FindViewById<AnimatedFloatingActionButton>(Resource.Id.CalendarStopButton);
+            runningEntryCardFrame = view.FindViewById(Resource.Id.MainRunningTimeEntrySheet);
+            playButton = view.FindViewById<AnimatedFloatingActionButton>(Resource.Id.MainPlayButton);
+            stopButton = view.FindViewById<FloatingActionButton>(Resource.Id.MainStopButton);
+            timeEntryCardTimerLabel = view.FindViewById<TextView>(Resource.Id.MainRunningTimeEntryTimerLabel);
+            timeEntryCardDescriptionLabel = view.FindViewById<TextView>(Resource.Id.MainRunningTimeEntryDescription);
+            timeEntryCardAddDescriptionLabel = view.FindViewById<TextView>(Resource.Id.MainRunningTimeEntryAddDescriptionLabel);
+            timeEntryCardDotContainer = view.FindViewById(Resource.Id.MainRunningTimeEntryProjectDotContainer);
+            timeEntryCardDotView = view.FindViewById(Resource.Id.MainRunningTimeEntryProjectDotView);
+            timeEntryCardProjectClientTaskLabel = view.FindViewById<TextView>(Resource.Id.MainRunningTimeEntryProjectClientTaskLabel);
+            timeEntryCardAddDescriptionLabel.Text = Shared.Resources.AddDescription;
         }
     }
 }
