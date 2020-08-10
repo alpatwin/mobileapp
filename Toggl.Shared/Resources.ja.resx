@@ -1345,4 +1345,25 @@ PDF、CSV &amp; XLSを書き出す</value>
     <data name="SearchOrAddObject" xml:space="preserve">
         <value>{0}を検索・追加する</value>
     </data>
+    <data name="PreLaunchAnnouncementTitle" xml:space="preserve">
+        <value>We're Getting a New Name!</value>
+    </data>
+    <data name="PreLaunchAnnouncementMessage" xml:space="preserve">
+        <value>Toggl is becoming Toggl Track! We'll still be the Toggl you know and love on mobile, desktop, and web - but we've welcomed Toggl Plan and Toggl Hire into the family 🤗</value>
+    </data>
+    <data name="RebrandingAnnouncementTitle" xml:space="preserve">
+        <value>Toggl is now Toggl Track!</value>
+    </data>
+    <data name="RebrandingAnnouncementMessage" xml:space="preserve">
+        <value>We're still the Toggl you know and love on mobile, desktop, and web - but we've welcomed Toggl Plan and Toggl Hire into the family 🤗</value>
+    </data>
+    <data name="CheckUsOut" xml:space="preserve">
+        <value>Check us out!</value>
+    </data>
+    <data name="LearnMore" xml:space="preserve">
+        <value>Learn more</value>
+    </data>
+    <data name="Dismiss" xml:space="preserve">
+        <value>Dismiss</value>
+    </data>
 </root>

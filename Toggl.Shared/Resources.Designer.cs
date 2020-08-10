@@ -448,6 +448,24 @@ namespace Toggl.Shared {
             }
         }
         
+        public static string Dismiss {
+            get {
+                return ResourceManager.GetString("Dismiss", resourceCulture);
+            }
+        }
+        
+        public static string CheckUsOut {
+            get {
+                return ResourceManager.GetString("CheckUsOut", resourceCulture);
+            }
+        }
+        
+        public static string LearnMore {
+            get {
+                return ResourceManager.GetString("LearnMore", resourceCulture);
+            }
+        }
+
         public static string Settings {
             get {
                 return ResourceManager.GetString("Settings", resourceCulture);
@@ -877,6 +895,30 @@ namespace Toggl.Shared {
         public static string InaccessibleTimeEntryErrorMessage {
             get {
                 return ResourceManager.GetString("InaccessibleTimeEntryErrorMessage", resourceCulture);
+            }
+        }
+        
+        public static string PreLaunchAnnouncementTitle {
+            get {
+                return ResourceManager.GetString("PreLaunchAnnouncementTitle", resourceCulture);
+            }
+        }
+        
+        public static string PreLaunchAnnouncementMessage {
+            get {
+                return ResourceManager.GetString("PreLaunchAnnouncementMessage", resourceCulture);
+            }
+        }
+        
+        public static string RebrandingAnnouncementTitle {
+            get {
+                return ResourceManager.GetString("RebrandingAnnouncementTitle", resourceCulture);
+            }
+        }
+        
+        public static string RebrandingAnnouncementMessage {
+            get {
+                return ResourceManager.GetString("RebrandingAnnouncementMessage", resourceCulture);
             }
         }
         
