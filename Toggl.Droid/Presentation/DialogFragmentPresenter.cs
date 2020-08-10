@@ -23,6 +23,7 @@ namespace Toggl.Droid.Presentation
             typeof(TermsOfServiceViewModel),
             typeof(UpcomingEventsNotificationSettingsViewModel),
             typeof(DateRangePickerViewModel),
+            typeof(AnnouncementViewModel),
         };
 
         protected override void PresentOnMainThread<TInput, TOutput>(ViewModel<TInput, TOutput> viewModel, IView sourceView)
@@ -67,6 +68,9 @@ namespace Toggl.Droid.Presentation
 
                 case DateRangePickerViewModel _:
                     return new DateRangePickerFragment();
+
+                case AnnouncementViewModel _:
+                    return new AnnouncementFragment();
             }
 
             throw new InvalidOperationException($"There's no reactive dialog implementation for {viewModel.GetType().Name}");

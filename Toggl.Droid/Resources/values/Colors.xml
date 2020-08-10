@@ -127,4 +127,9 @@
   <color name="onboardingTogglLogoText">#000000</color>
   <color name="tooltipBackground">#FF0FA8F5</color>
   <color name="tooltipText">#FFFFFFFF</color>
+
+  <!-- Announcements -->
+  <color name="announcementBackground">#fef6f4</color>
+  <color name="announcementButton">#dd6fd1</color>
+  <color name="announcementText">#310f3a</color>
 </resources>

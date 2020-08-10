@@ -612,6 +612,7 @@
     <Compile Include="Extensions\Reactive\ToolbarExtensions.cs" />
     <Compile Include="Extensions\SnackbarExtensions.cs" />
     <Compile Include="Extensions\SpannableExtensions.cs" />
+    <Compile Include="Fragments\AnnouncementFragment.cs" />
     <Compile Include="Fragments\Calendar\CalendarDayViewPageFragment.cs" />
     <Compile Include="Fragments\Calendar\CalendarDayViewPageFragment.DialogProvider.cs">
       <DependentUpon>CalendarDayViewPageFragment.cs</DependentUpon>
@@ -1338,6 +1339,11 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\TooltipWithCenteredTopArrow.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\AnnouncementFragment.xml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>

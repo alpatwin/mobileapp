@@ -56,4 +56,8 @@
   <color name="onBoardingTabIndicatorSelected">#B3000000</color>
   <color name="onBoardingTabIndicatorDeselected">#33000000</color>
 
+  <!-- Announcements -->
+  <color name="announcementBackground">#180a1e</color>
+  <color name="announcementButton">#dd6fd1</color>
+  <color name="announcementText">#fde5dc</color>
 </resources>
