@@ -495,6 +495,12 @@ namespace Toggl.Core.UI.ViewModels
 
             await handleNoWorkspaceState();
             handleNoDefaultWorkspaceState();
+
+            var announcement = interactorFactory.FetchAnnouncement().Execute();
+            if (announcement != null)
+            {
+                await navigate<AnnouncementViewModel, Announcement>(announcement.Value);
+            }
         }
 
         private async Task viewDisappearedAsync()
