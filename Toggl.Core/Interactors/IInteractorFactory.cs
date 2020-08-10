@@ -263,5 +263,7 @@ namespace Toggl.Core.Interactors
         #endregion
 
         IInteractor<Task<UnsyncedDataDump>> CreateUnsyncedDataDump();
+
+        IInteractor<Announcement?> FetchAnnouncement();
     }
 }

@@ -553,5 +553,13 @@ namespace Toggl.Storage.Settings
 
             return (subject, observable);
         }
+
+        public bool CheckIfAnnouncementWasShown(string announcementId)
+            => keyValueStorage.GetBool(announcementId);
+
+        public void MarkAnnouncementAsShown(string id)
+        {
+            keyValueStorage.SetBool(id, true);
+        }
     }
 }

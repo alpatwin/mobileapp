@@ -57,5 +57,8 @@ namespace Toggl.Storage.Settings
         bool IsRunningTheAppFirstTime();
 
         void Reset();
+
+        bool CheckIfAnnouncementWasShown(string announcementId);
+        void MarkAnnouncementAsShown(string id);
     }
 }
