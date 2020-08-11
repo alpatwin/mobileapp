@@ -1429,6 +1429,12 @@
     <ImageAsset Include="Resources\Images.xcassets\illustrationBarChart.imageset\Graph.png" />
     <ImageAsset Include="Resources\Images.xcassets\illustrationBarChart.imageset\Graph%402x.png" />
     <ImageAsset Include="Resources\Images.xcassets\illustrationBarChart.imageset\Graph%403x.png" />
+    <ImageAsset Include="Resources\Colors.xcassets\RebrandingText.colorset\Contents.json" />
+    <ImageAsset Include="Resources\Colors.xcassets\RebrandingBackground.colorset\Contents.json" />
+    <ImageAsset Include="Resources\Images.xcassets\icTogglTrackLogo.imageset\Contents.json" />
+    <ImageAsset Include="Resources\Images.xcassets\icTogglTrackLogo.imageset\icTogglTrackLogo%403.png" />
+    <ImageAsset Include="Resources\Images.xcassets\icTogglTrackLogo.imageset\icTogglTrackLogo%402.png" />
+    <ImageAsset Include="Resources\Images.xcassets\icTogglTrackLogo.imageset\icTogglTrackLogo.png" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="LaunchScreen.storyboard" />
