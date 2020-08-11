@@ -1133,6 +1133,11 @@
     <AndroidResource Include="Resources\drawable-xhdpi\illustration_reports_total_chart.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\illustration_reports_total_chart.png" />
     <AndroidResource Include="Resources\drawable-xxxhdpi\illustration_reports_total_chart.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_toggl_track_logotype_stacked_pink_rgb.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_toggl_track_logotype_stacked_pink_rgb.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_toggl_track_logotype_stacked_pink_rgb.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_toggl_track_logotype_stacked_pink_rgb.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\ic_toggl_track_logotype_stacked_pink_rgb.png" />
     <AndroidResource Include="Resources\mipmap-anydpi-v26\ic_launcher.xml" />
     <AndroidResource Include="Resources\layout\MainFragment.axml" />
     <AndroidResource Include="Resources\layout\LoginActivity.axml" />
