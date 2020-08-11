@@ -706,8 +706,7 @@ Mettez en marche le chronomètre et vos enregistrements les plus utilisés s'aff
         <value>Appuez pour arrêter le chronomètre</value>
     </data>
     <data name="ClickOnFolderIconToAssignAProject" xml:space="preserve">
-        <value>Click on $ or use @ to assign
-a Project to a Time Entry</value>
+        <value>Cliquez sur $ ou utilisez @ pour attribuer un Projet à une Entrée</value>
     </data>
     <data name="DoneWithExclamationMark" xml:space="preserve">
         <value>Terminé!</value>
@@ -1283,28 +1282,25 @@ Quelques préparatifs avant que
 vous puissiez suivre votre temps</value>
     </data>
     <data name="GetReadyToTrackTimeAndBoostYourProductivity" xml:space="preserve">
-        <value>Get ready to track time and
-boost your productivity!</value>
+        <value>Préparez-vous à suivre votre temps et à augmenter votre productivité</value>
     </data>
     <data name="GettingStartedWithTogglApp" xml:space="preserve">
-        <value>Getting started with Toggl app</value>
+        <value>Débuter avec Toggl app</value>
     </data>
     <data name="HereIsYourRunningTimeEntryTooltip" xml:space="preserve">
-        <value>Here is your running Time Entry.
-Tap to edit it.</value>
+        <value>Voici votre première entrée en cours d´exécution. Appuyez dessus pour l'editer.</value>
     </data>
     <data name="AssignYourTimeEntryToAProject" xml:space="preserve">
-        <value>Assign your time entry to a larger 
-Project to get more useful time reports</value>
+        <value>Attribuez votre entrée à un Projet pour obtenir des rapports plus utiles</value>
     </data>
     <data name="TapHereToChangeOrAddProjects" xml:space="preserve">
-        <value>Tap here to change or add Projects</value>
+        <value>Appuyez ici port editer ou ajouter des Projets</value>
     </data>
     <data name="TapHereToStartYourNextTimeEntry" xml:space="preserve">
-        <value>Tap here to start your next Time Entry</value>
+       <value>Appuyez ici pour démarrer votre prochaine Entrée</value>>
     </data>
     <data name="TapHereToStopYourTimeEntry" xml:space="preserve">
-        <value>Tapping here will stop the timer</value>
+        <value>Appuyez ici, pour arrêter le chronomètre</value>
     </data>
     <data name="YourWorkspacePlan" xml:space="preserve">
         <value>Your Workspace Plan</value>
@@ -1376,14 +1372,13 @@ Project to get more useful time reports</value>
         <value>https://toggl.com</value>
     </data>
     <data name="YouveMadeYourFirstTimeEntry" xml:space="preserve">
-        <value>You've made your first
-Time Entry on Toggl mobile app 🎉</value>
+        <value>Vous avez créée votre première entrée sur l'appli Toggl 🎉</value>
     </data>
     <data name="YouCanAccessTimeEntriesFromAnyTogglApp" xml:space="preserve">
-        <value>You can easily access and edit all your Time Entries from any Toggl app.</value>
+        <value>Vous pouvez facilement accéder et modifier toutes vos entrées avec l'enssemble des outils Toggl</value>
     </data>
     <data name="OkGotIt" xml:space="preserve">
-        <value>Ok, got it!</value>
+        <value>Ok, compris!</value>
     </data>
     <data name="AdvancedReportsViaWeb" xml:space="preserve">
         <value>Advanced reports via web</value>
