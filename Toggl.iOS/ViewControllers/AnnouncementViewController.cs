@@ -19,7 +19,7 @@ namespace Toggl.iOS.ViewControllers
         {
             base.ViewDidLoad();
 
-            PreferredContentSize = new CGSize(288, 426);
+            PreferredContentSize = new CGSize(288, 419);
 
             TitleLabel.Text = ViewModel.Announcement.Title;
             MessageLabel.Text = ViewModel.Announcement.Message;
