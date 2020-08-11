@@ -105,6 +105,8 @@ namespace Toggl.iOS.Presentation
                     return new TermsAndCountryViewController(vm);
                 case YourPlanViewModel vm:
                     return new YourPlanViewController(vm);
+                case AnnouncementViewModel vm:
+                    return new AnnouncementViewController(vm);
                 default:
                     throw new Exception($"Failed to create ViewController for ViewModel of type {viewModel.GetType().Name}");
             }

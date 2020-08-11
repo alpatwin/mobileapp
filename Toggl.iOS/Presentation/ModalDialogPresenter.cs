@@ -21,7 +21,8 @@ namespace Toggl.iOS.Presentation
             typeof(PasteFromClipboardViewModel),
             typeof(SelectDefaultWorkspaceViewModel),
             typeof(TermsOfServiceViewModel),
-            typeof(DateRangePickerViewModel)
+            typeof(DateRangePickerViewModel),
+            typeof(AnnouncementViewModel)
         };
 
         public ModalDialogPresenter(UIWindow window, AppDelegate appDelegate) : base(window, appDelegate)

@@ -1603,6 +1603,7 @@
     <Compile Include="Startup\IOSSchedulerProvider.cs" />
     <Compile Include="Extensions\AnimationExtensions.cs" />
     <Compile Include="Transformations\ProjectTaskClientToAttributedString.cs" />
+    <Compile Include="ViewControllers\AnnouncementViewController.cs" />
     <Compile Include="ViewControllers\Calendar\CalendarViewController.KeyCommands.cs">
       <DependentUpon>CalendarViewController.cs</DependentUpon>
     </Compile>
