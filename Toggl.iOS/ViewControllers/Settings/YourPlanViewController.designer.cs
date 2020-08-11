@@ -16,18 +16,34 @@ namespace Toggl.iOS.ViewControllers.Settings
 		UIKit.UILabel LoginToYourAccountLabel { get; set; }
 
 		[Outlet]
+		UIKit.UILabel PlanExpirationDateLabel { get; set; }
+
+		[Outlet]
+		UIKit.UILabel PlanNameLabel { get; set; }
+
+		[Outlet]
 		UIKit.UIStackView StackView { get; set; }
 		
 		void ReleaseDesignerOutlets ()
 		{
-			if (StackView != null) {
-				StackView.Dispose ();
-				StackView = null;
+			if (PlanExpirationDateLabel != null) {
+				PlanExpirationDateLabel.Dispose ();
+				PlanExpirationDateLabel = null;
+			}
+
+			if (PlanNameLabel != null) {
+				PlanNameLabel.Dispose ();
+				PlanNameLabel = null;
 			}
 
 			if (LoginToYourAccountLabel != null) {
 				LoginToYourAccountLabel.Dispose ();
 				LoginToYourAccountLabel = null;
+			}
+
+			if (StackView != null) {
+				StackView.Dispose ();
+				StackView = null;
 			}
 		}
 	}
