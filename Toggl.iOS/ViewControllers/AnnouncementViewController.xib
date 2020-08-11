@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="dark"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AnnouncementViewController">
+            <connections>
+                <outlet property="ActionButton" destination="XqP-FA-HhS" id="ENq-f6-Cje"/>
+                <outlet property="DismissButton" destination="6wa-wb-rux" id="UaB-yL-wcG"/>
+                <outlet property="MessageLabel" destination="N1d-cI-vq9" id="6TH-8z-IA2"/>
+                <outlet property="TitleLabel" destination="stu-dJ-uXJ" id="kPU-G2-3JB"/>
+                <outlet property="view" destination="2" id="RRd-Eg-VrN"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="2">
+            <rect key="frame" x="0.0" y="0.0" width="288" height="426"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icTogglTrackLogo" translatesAutoresizingMaskIntoConstraints="NO" id="Mrw-8z-TxX">
+                    <rect key="frame" x="61.5" y="33" width="165" height="106"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="106" id="8u6-UF-0oB"/>
+                        <constraint firstAttribute="width" constant="165" id="lcT-jw-SlM"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="We're Getting a New Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="stu-dJ-uXJ">
+                    <rect key="frame" x="29.5" y="169" width="229.5" height="21"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                    <color key="textColor" name="RebrandingText"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N1d-cI-vq9">
+                    <rect key="frame" x="16" y="205" width="256" height="90"/>
+                    <string key="text">Toggl is becoming Toggl Track! We'll still be the Toggl you know and love on mobile, desktop, and web - but we've welcomed Toggl Plan and Toggl Hire into the family 🤗</string>
+                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                    <color key="textColor" name="RebrandingText"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XqP-FA-HhS">
+                    <rect key="frame" x="16" y="315" width="256" height="40"/>
+                    <color key="backgroundColor" red="0.8666666666666667" green="0.43529411764705883" blue="0.81960784313725488" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="Mpz-dH-hHT"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                    <state key="normal" title="Learn more">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="8"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6wa-wb-rux">
+                    <rect key="frame" x="117" y="369" width="54" height="30"/>
+                    <state key="normal" title="Dismiss">
+                        <color key="titleColor" name="RebrandingText"/>
+                    </state>
+                </button>
+            </subviews>
+            <color key="backgroundColor" name="RebrandingBackground"/>
+            <constraints>
+                <constraint firstItem="Mrw-8z-TxX" firstAttribute="top" secondItem="2" secondAttribute="top" constant="33" id="2Ap-yV-hgr"/>
+                <constraint firstItem="stu-dJ-uXJ" firstAttribute="top" secondItem="Mrw-8z-TxX" secondAttribute="bottom" constant="30" id="89H-83-8MN"/>
+                <constraint firstItem="6wa-wb-rux" firstAttribute="top" secondItem="XqP-FA-HhS" secondAttribute="bottom" constant="14" id="Dp8-gT-2FI"/>
+                <constraint firstAttribute="trailing" secondItem="N1d-cI-vq9" secondAttribute="trailing" constant="16" id="JIu-mt-QbM"/>
+                <constraint firstItem="Mrw-8z-TxX" firstAttribute="centerX" secondItem="2" secondAttribute="centerX" id="JcY-7w-b6J"/>
+                <constraint firstItem="6wa-wb-rux" firstAttribute="centerX" secondItem="2" secondAttribute="centerX" id="K7x-sp-yxJ"/>
+                <constraint firstItem="N1d-cI-vq9" firstAttribute="leading" secondItem="2" secondAttribute="leading" constant="16" id="Ka6-61-iHi"/>
+                <constraint firstItem="N1d-cI-vq9" firstAttribute="centerX" secondItem="2" secondAttribute="centerX" id="OEg-rw-QbE"/>
+                <constraint firstItem="XqP-FA-HhS" firstAttribute="centerX" secondItem="2" secondAttribute="centerX" id="Plc-Tu-040"/>
+                <constraint firstAttribute="trailing" secondItem="XqP-FA-HhS" secondAttribute="trailing" constant="16" id="YCC-f8-skE"/>
+                <constraint firstItem="XqP-FA-HhS" firstAttribute="leading" secondItem="2" secondAttribute="leading" constant="16" id="d4B-BB-fwC"/>
+                <constraint firstItem="XqP-FA-HhS" firstAttribute="top" secondItem="N1d-cI-vq9" secondAttribute="bottom" constant="20" id="dMc-Xf-rA9"/>
+                <constraint firstItem="stu-dJ-uXJ" firstAttribute="centerX" secondItem="2" secondAttribute="centerX" id="s3o-20-ONA"/>
+                <constraint firstItem="N1d-cI-vq9" firstAttribute="top" secondItem="stu-dJ-uXJ" secondAttribute="bottom" constant="15" id="z0e-bZ-Pak"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="47" y="54"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="icTogglTrackLogo" width="200" height="130"/>
+        <namedColor name="RebrandingBackground">
+            <color red="0.99599999189376831" green="0.9649999737739563" blue="0.9570000171661377" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="RebrandingText">
+            <color red="0.19200000166893005" green="0.059000000357627869" blue="0.22699999809265137" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

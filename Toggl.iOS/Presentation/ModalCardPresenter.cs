@@ -26,6 +26,7 @@ namespace Toggl.iOS.Presentation
             typeof(SendFeedbackViewModel),
             typeof(StartTimeEntryViewModel),
             typeof(UpcomingEventsNotificationSettingsViewModel),
+            typeof(AnnouncementViewModel),
         };
 
         public ModalCardPresenter(UIWindow window, AppDelegate appDelegate) : base(window, appDelegate)

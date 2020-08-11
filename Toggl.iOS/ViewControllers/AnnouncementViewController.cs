@@ -8,13 +8,8 @@ using UIKit;
 
 namespace Toggl.iOS.ViewControllers
 {
-    public class AnnouncementViewController : ReactiveViewController<AnnouncementViewModel>
+    public partial class AnnouncementViewController : ReactiveViewController<AnnouncementViewModel>
     {
-        UIButton DismissButton { get; set; }
-        UIButton ActionButton { get; set; }
-        UILabel MessageLabel { get; set; }
-        UILabel TitleLabel { get; set; }
-
         public AnnouncementViewController(AnnouncementViewModel viewModel)
             : base(viewModel, nameof(AnnouncementViewController))
         {
@@ -24,7 +19,7 @@ namespace Toggl.iOS.ViewControllers
         {
             base.ViewDidLoad();
 
-            PreferredContentSize = new CGSize(288, 410);
+            PreferredContentSize = new CGSize(288, 426);
 
             TitleLabel.Text = ViewModel.Announcement.Title;
             MessageLabel.Text = ViewModel.Announcement.Message;
@@ -41,3 +36,4 @@ namespace Toggl.iOS.ViewControllers
         }
     }
 }
+

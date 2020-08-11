@@ -1536,6 +1536,7 @@
     <InterfaceDefinition Include="Views\Onboarding\OnboardingPageView.xib" />
     <InterfaceDefinition Include="Cells\Reports\ReportAdvancedReportsViaWebCollectionViewCell.xib" />
     <InterfaceDefinition Include="ViewControllers\Settings\YourPlanViewController.xib" />
+    <InterfaceDefinition Include="ViewControllers\AnnouncementViewController.xib" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\togglman.mp4" />
@@ -1609,7 +1610,6 @@
     <Compile Include="Startup\IOSSchedulerProvider.cs" />
     <Compile Include="Extensions\AnimationExtensions.cs" />
     <Compile Include="Transformations\ProjectTaskClientToAttributedString.cs" />
-    <Compile Include="ViewControllers\AnnouncementViewController.cs" />
     <Compile Include="ViewControllers\Calendar\CalendarViewController.KeyCommands.cs">
       <DependentUpon>CalendarViewController.cs</DependentUpon>
     </Compile>
@@ -2185,6 +2185,10 @@
     <Compile Include="ViewControllers\Settings\YourPlanViewController.cs" />
     <Compile Include="ViewControllers\Settings\YourPlanViewController.designer.cs">
       <DependentUpon>YourPlanViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewControllers\AnnouncementViewController.cs" />
+    <Compile Include="ViewControllers\AnnouncementViewController.designer.cs">
+      <DependentUpon>AnnouncementViewController.cs</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
