@@ -1401,4 +1401,7 @@ Exports PDF, CSV et XLS</value>
     <data name="OnboardingMessagePage3Ios" xml:space="preserve">
         <value>Fonctionne comme vous - mobile, desktop, web et Watch</value>
     </data>
+    <data name="SearchOrAddObject" xml:space="preserve">
+        <value>Rechercher ou ajouter {0}</value>
+    </data>
 </root>
